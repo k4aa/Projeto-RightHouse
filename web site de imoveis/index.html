@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="logo" href="imagens_trabalho/logo-site.jpg">
+    <title>Right House </title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+    
+</head>
+<body class="temas">
+    <div class="container">
+        <nav>
+            <div class="logo">
+                 <section class="logo"></section>
+                 Right House
+            </div>
+            <ul>
+                <li><a href="./index.html">Inicio</a></li>
+                <li><a href="./comprar.html">Comprar</a></li>
+                <li><a href="./alugar.html">Alugar</a></li>
+                <li><a href="./login.html">Login</a></li>
+            </ul>    
+        </nav>
+        </div>
+        <h2 style="text-align:center"><p><br> Encontre a Casa dos Seus Sonhos Hoje!</p><br></h2><br>
+    <!-- <section class="banner"></section> -->
+
+    <div class="carrossel-container">
+        <!-- Botão para a esquerda -->
+        <button class="prev" onclick="moverImagem(-1)">&#10094;</button>
+
+        <!-- Imagens do carrossel -->
+        <div class="carrossel-imagens">
+            <img src="imagens_trabalho/imagen-1.jpg" alt="">
+            <img src="imagens_trabalho/imagen-2.jpg" alt="">
+            <img src="imagens_trabalho/images-3.jpg" alt="">
+            <img src="imagens_trabalho/images-4.jpg" alt="">
+            <!-- Adicione mais imagens conforme necessário -->
+        </div>
+
+        <!-- Botão para a direita -->
+        <button class="next" onclick="moverImagem(1)">&#10095;</button>
+    </div>
+
+    <script src="script.js"></script>
+
+    <script>
+
+        // Variáveis para controlar a posição das imagens
+let index = 0;
+
+// Função para mover as imagens
+function moverImagem(n) {
+    // Total de imagens
+    const imagens = document.querySelectorAll('.carrossel-imagens img');
+
+    // Atualiza o índice da imagem
+    index += n;
+
+    // Se o índice for menor que 0, vai para a última imagem
+    if (index < 0) {
+        index = imagens.length - 1;
+    }
+
+    // Se o índice for maior que o número de imagens, vai para a primeira imagem
+    if (index >= imagens.length) {
+        index = 0;
+    }
+
+    // Atualiza a posição das imagens com base no índice
+    const carrossel = document.querySelector('.carrossel-imagens');
+    carrossel.style.transform = `translateX(${-index * 100}%)`; // Desloca para a imagem correta
+}
+
+// Funcionalidade de autoplay (opcional)
+let intervalo = setInterval(() => moverImagem(1), 3000); // Avança a cada 3 segundos
+
+// Pausar o autoplay quando o usuário interagir
+document.querySelector('.prev').addEventListener('click', () => clearInterval(intervalo));
+document.querySelector('.next').addEventListener('click', () => clearInterval(intervalo));
+
+
+    </script>
+
+    <div class="produto-conteiner">
+        <br><br>
+        <ul>
+
+            <li class="ppu"><br><br><br>
+                <h2> ㅤㅤVocê está pronto para dar o próximo grande passo na sua vida? Imagine viver em um lar que não é apenas um espaço, mas um verdadeiro refúgio para você e sua família. Estamos aqui para tornar esse sonho realidade!</h2><br><br><br>
+            </li><br><br><br><br><br>
+            <li class="ppi">
+               <h2><br><br><br> ㅤㅤSabemos que a busca pela casa perfeita pode ser desafiadora e  até mesmo estressante. Por isso, oferecemos uma seleção exclusiva de imóveis que atendem a todos os gostos e orçamentos. Desde aconchegantes apartamentos em áreas centrais até casas espaçosas em bairros tranquilos, temos opções que se encaixam exatamente no que você procura. <br><br><br></h2>
+            </li><br><br><br>
+        </ul>
+    </div>
+    <div class="mapa">  
+        <div id="map"></div>
+    
+        <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+        <script>
+            // Inicializando o mapa
+            var map = L.map('map').setView([-23.55052, -46.633308], 13); // São Paulo como exemplo
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors'
+            }).addTo(map);
+        </script>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        
+    </div><br><br>
+
+
+    <h1>Casas adicionados recentimentes </h1><br>
+    <h3 style="color:rgb(163, 107, 3);">Facilitamos a sua busca com as melhores oportunidade para você viver o que sempre quis.
+    </h3>
+    <section class="section_container_recentes">
+        <div class="recentes_grid">
+            <div class="recentes_cards">
+                <img src="imagens_trabalho/ima-alu-1.jpg" alt="">
+                <div class="recent_content">
+                    <div class="recent_car_header">
+                        <h4>Parque Residencial Aquarius,<br> São Jose dos Campos</h4>
+                        <h4 class="alugar">|alugar:</h4>
+                        <h4>R$2.500/mês</h4><br>
+                    </div>
+                    <p>São Paulo</p>
+                    <a href="./mensagem.html">informações</a>
+                        <!--
+                        <h4>2- Dormitorios</h4>
+                        <h4>1- Vaga</h4>
+                        <h4>1 -Banheiro</h4>
+                        <h4>6º Andar</h4>
+                        <h4>Piscina</h4>
+                        <h4>55m2</h4>-->
+                </div>
+            </div>
+            <div class="recentes_cards">
+                <img src="imagens_trabalho/ima-alu-2.jpg" alt="">
+                <div class="recent_content">
+                    <div class="recent_car_header">
+                        <h4>Alameda Nova Zelândia, 333 - Alphaville Nova Esplanada, Votorantim - SP</h4>
+                        <h4 class="alugar">|alugar:</h4>
+                        <h4>R$16.000/dia</h4>
+                    </div>
+                    <p>Ceará</p>
+                    <a href="./mensagem2.html">informações</a>
+                        <!--
+                        <h4>3- Dormitorios</h4>
+                        <h4>4- Vaga</h4>
+                        <h4>5- banheiro</h4>
+                        <h4>piscina</h4>
+                        <h4>3- suítes</h4>
+                        <h4>245m2</h4>-->
+                </div>
+            </div>
+            <div class="recentes_cards">
+                <img src="imagens_trabalho/ima-alu-3.jpg" alt="">
+                <div class="recent_content">
+                    <div class="recent_car_header">
+                        <h4>Rua Leopoldo Paulo Seidl <br> - Linha Santa Cruz, Santa Cruz do Sul - RS</h4>
+                        <h4 class="alugar">|alugar:</h4>
+                        <h4>R$2.000/mês</h4>
+                    </div>
+                    <p>São Paulo</p>
+                    <a href="./mensagem3.html">informações</a>
+                    <!--
+                        <h4>1- Vaga</h4>
+                        <h4>1- Banheiro</h4>
+                        <h4>50m2</h4>-->
+                </div>
+            </div>
+            <div class="recentes_cards">
+            <img src="imagens_trabalho/ima-con-1.jpg" alt="">
+                <div class="recent_content">
+                    <div class="recent_car_header">
+                        <h4>Avenida David Rocha, 10 - Mirante da Mata, Nova Lima</h4>
+                        <h4 class="comprar">|venda:</h4>
+                        <h4>R$1.200.000</h4>
+                    </div>
+                    <p>Minas Gerais</p>
+                    <a href="./mensagem4.html">informações</a>
+                    <!--
+                        <h4>900m2<h4>-->
+                </div>
+            </div>
+            <div class="recentes_cards">
+                <img src="imagens_trabalho/ima-con-2.jpg" alt="">
+                <div class="recent_content">
+                    <div class="recent_car_header">
+                        <h4>Rua Ministro Luiz Gallotti, 410 - Vila Cordeiro, São Paulo</h4>
+                        <h4 class="comprar">|venda:</h4>
+                        <h4>R$4.632.000</h4>
+                    </div>
+                    <p>São Paulo</p>
+                    <a href="./mensagem5.html">informações</a>
+                    <!--
+                        <h4>3- Dormitorios</h4>
+                        <h4>4- Vaga</h4>
+                        <h4>6- Banheiro</h4>
+                        <h4>3- Suíte</h4>
+                        <h4>258m2</h4>-->
+                </div>
+            </div>
+            <div class="recentes_cards">
+                <img src="imagens_trabalho/ima-con-3.jpg" alt="">
+                <div class="recent_content">
+                    <div class="recent_car_header">
+                        <h4>Jardim Suarão, condominio<br> Itanhaém</h4>
+                        <h4 class="comprar">venda:</h4>
+                        <h4>R$235.000</h4>
+                    </div>
+                    <p>São Paulo</p>
+                    <a href="./mensagem6.html">informações</a>
+                    <!--
+                        <h4>2- Dormitorios</h4>
+                        <h4>2- Vaga</h4>
+                        <h4>2- Banheiro</h4>
+                        <h4>75m2</h4>-->
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+</body>
+</html>
